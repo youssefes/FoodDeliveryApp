@@ -24,8 +24,8 @@ https://app.beeceptor.com/console/fooddeliveryapp
 
 ### 🧾 Order List
 
-![Order List](Screenshots/order-list.png)
+![Order List](Screenshots/orderList.png)
 
 ### 🚚 Order Details
 
-![Order Details](Screenshots/order-details.png)
+![Order Details](Screenshots/orderDetails.png)
