@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "restaurant": "Pizza Palace",
+    "restaurantImage": "https://media.istockphoto.com/id/1377372234/fi/valokuva/pizza-salamilla-paprikaa-tomaatteja-ja-juustoa-suolakurkkuja-pekonia-ja-makkaroita.jpg?s=1024x1024&w=is&k=20&c=yTwGwJIH63PUSsUVOBt45dBm0Kodv92C6tidrsgak9Y=",
+    "status": "Preparing"
+  },
+  {
+    "id": 2,
+    "restaurant": "Burger Town",
+    "restaurantImage": "https://media.istockphoto.com/id/1309352410/photo/cheeseburger-with-tomato-and-lettuce-on-wooden-board.jpg?s=1024x1024&w=is&k=20&c=XXp34bPwWkHPUXbZQRJpR1w2YUSpYZUB_yNdeDlVXlQ=",
+    "status": "Delivery"
+  },
+  {
+    "id": 3,
+    "restaurant": "Sushi Express",
+    "restaurantImage": "https://media.istockphoto.com/id/1053854126/photo/all-you-can-eat-sushi.jpg?s=1024x1024&w=is&k=20&c=pX-CcpoU1hARXKEKIDjm8XFkHqSCZ8kDFziERFHMMg0=",
+    "status": "Order"
+  }
+]

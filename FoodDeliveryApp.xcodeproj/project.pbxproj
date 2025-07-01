@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3902DB612E13C906007BF375 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3902DB602E13C906007BF375 /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3902DAFC2E13C714007BF375 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,20 +33,23 @@
 		3902DB052E13C714007BF375 /* FoodDeliveryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodDeliveryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3902DB632E13CA3D007BF375 /* Exceptions for "FoodDeliveryApp" folder in "FoodDeliveryApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3902DAEA2E13C713007BF375 /* FoodDeliveryApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3902DAED2E13C713007BF375 /* FoodDeliveryApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3902DB632E13CA3D007BF375 /* Exceptions for "FoodDeliveryApp" folder in "FoodDeliveryApp" target */,
+			);
 			path = FoodDeliveryApp;
-			sourceTree = "<group>";
-		};
-		3902DAFE2E13C714007BF375 /* FoodDeliveryAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FoodDeliveryAppTests;
-			sourceTree = "<group>";
-		};
-		3902DB082E13C714007BF375 /* FoodDeliveryAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FoodDeliveryAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3902DB612E13C906007BF375 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				3902DAED2E13C713007BF375 /* FoodDeliveryApp */,
-				3902DAFE2E13C714007BF375 /* FoodDeliveryAppTests */,
-				3902DB082E13C714007BF375 /* FoodDeliveryAppUITests */,
 				3902DAEC2E13C713007BF375 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +118,7 @@
 			);
 			name = FoodDeliveryApp;
 			packageProductDependencies = (
+				3902DB602E13C906007BF375 /* Kingfisher */,
 			);
 			productName = FoodDeliveryApp;
 			productReference = 3902DAEB2E13C713007BF375 /* FoodDeliveryApp.app */;
@@ -129,9 +136,6 @@
 			);
 			dependencies = (
 				3902DAFD2E13C714007BF375 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				3902DAFE2E13C714007BF375 /* FoodDeliveryAppTests */,
 			);
 			name = FoodDeliveryAppTests;
 			packageProductDependencies = (
@@ -152,9 +156,6 @@
 			);
 			dependencies = (
 				3902DB072E13C714007BF375 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				3902DB082E13C714007BF375 /* FoodDeliveryAppUITests */,
 			);
 			name = FoodDeliveryAppUITests;
 			packageProductDependencies = (
@@ -195,6 +196,9 @@
 			);
 			mainGroup = 3902DAE22E13C712007BF375;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3902DB5F2E13C906007BF375 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3902DAEC2E13C713007BF375 /* Products */;
 			projectDirPath = "";
@@ -398,6 +402,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FoodDeliveryApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodDeliveryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,6 +431,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FoodDeliveryApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodDeliveryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -552,6 +558,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3902DB5F2E13C906007BF375 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3902DB602E13C906007BF375 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3902DB5F2E13C906007BF375 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3902DAE32E13C712007BF375 /* Project object */;
 }
