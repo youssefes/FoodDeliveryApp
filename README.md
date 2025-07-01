@@ -20,3 +20,12 @@ https://app.beeceptor.com/console/fooddeliveryapp
 - GET /orders/{id}
 - WS: ws://localhost:8080/orders/updates
 
+## 📱 Screenshots
+
+### 🧾 Order List
+
+![Order List](Screenshots/order-list.png)
+
+### 🚚 Order Details
+
+![Order Details](Screenshots/order-details.png)
