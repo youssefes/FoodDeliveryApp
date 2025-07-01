@@ -23,7 +23,7 @@ class GetOrdersRepository: GetOrdersRepositoryProtocol{
     func fetchOrders() async throws -> [OrderData] {
         let cached = try ordersLocal.loadOrders()
         if  !cached.isEmpty {
-//            Task { try? await fetchAndRefreshIfNeeded(existing: cached) }
+            Task { try? await fetchAndRefreshIfNeeded(existing: cached) }
             return cached
         } else {
             return try await fetchOrdersRemote()

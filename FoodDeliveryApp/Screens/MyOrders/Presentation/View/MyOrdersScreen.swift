@@ -1,12 +1,12 @@
 //
-//  MyOrderScreen.swift
+//  MyOrdersScreen.swift
 //  Created by Asset's Macbook Pro on 01/07/2025.
 //  Copyright © 2025 youssef. All rights reserved.
 
 import SwiftUI
 
-struct MyOrderScreen: View {
-    @StateObject var viewModel = MyOrderViewModel()
+struct MyOrdersScreen: View {
+    @StateObject var viewModel = MyOrdersViewModel()
     var body: some View {
         NavigationStack {
             BaseView(state: $viewModel.state) {
@@ -39,5 +39,5 @@ struct MyOrderScreen: View {
 }
 
 #Preview {
-    MyOrderScreen()
+    MyOrdersScreen()
 }

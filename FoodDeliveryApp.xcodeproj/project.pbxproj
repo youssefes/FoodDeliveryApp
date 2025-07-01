@@ -41,6 +41,34 @@
 			);
 			target = 3902DAEA2E13C713007BF375 /* FoodDeliveryApp */;
 		};
+		3978DB362E1497140003CF40 /* Exceptions for "FoodDeliveryAppTests" folder in "FoodDeliveryApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Screens/MyOrder/Data/Local/GetOrdersLocalTests.swift,
+				Screens/MyOrder/Data/Mocks/MockGetOrdersLocal.swift,
+				Screens/MyOrder/Data/Mocks/MockGetOrdersNetworkService.swift,
+				Screens/MyOrder/Data/Repository/GetOrdersRepositoryTests.swift,
+				Screens/MyOrder/Domain/Mocks/MockGetOrdersRepository.swift,
+				Screens/MyOrder/Domain/UseCase/GetOrdersUseCaseTests.swift,
+				Screens/MyOrder/HomeViewModel/Mocks/MockGetOrdersUseCase.swift,
+				Screens/MyOrder/HomeViewModel/MyOrdersViewModelTests.swift,
+			);
+			target = 3902DAEA2E13C713007BF375 /* FoodDeliveryApp */;
+		};
+		3978DB382E1497190003CF40 /* Exceptions for "FoodDeliveryAppTests" folder in "FoodDeliveryAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Screens/MyOrder/Data/Local/GetOrdersLocalTests.swift,
+				Screens/MyOrder/Data/Mocks/MockGetOrdersLocal.swift,
+				Screens/MyOrder/Data/Mocks/MockGetOrdersNetworkService.swift,
+				Screens/MyOrder/Data/Repository/GetOrdersRepositoryTests.swift,
+				Screens/MyOrder/Domain/Mocks/MockGetOrdersRepository.swift,
+				Screens/MyOrder/Domain/UseCase/GetOrdersUseCaseTests.swift,
+				Screens/MyOrder/HomeViewModel/Mocks/MockGetOrdersUseCase.swift,
+				Screens/MyOrder/HomeViewModel/MyOrdersViewModelTests.swift,
+			);
+			target = 3902DAFA2E13C714007BF375 /* FoodDeliveryAppTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -50,6 +78,15 @@
 				3902DB632E13CA3D007BF375 /* Exceptions for "FoodDeliveryApp" folder in "FoodDeliveryApp" target */,
 			);
 			path = FoodDeliveryApp;
+			sourceTree = "<group>";
+		};
+		3978DB082E1496040003CF40 /* FoodDeliveryAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3978DB362E1497140003CF40 /* Exceptions for "FoodDeliveryAppTests" folder in "FoodDeliveryApp" target */,
+				3978DB382E1497190003CF40 /* Exceptions for "FoodDeliveryAppTests" folder in "FoodDeliveryAppTests" target */,
+			);
+			path = FoodDeliveryAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -84,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3902DAED2E13C713007BF375 /* FoodDeliveryApp */,
+				3978DB082E1496040003CF40 /* FoodDeliveryAppTests */,
 				3902DAEC2E13C713007BF375 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +153,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				3902DAED2E13C713007BF375 /* FoodDeliveryApp */,
+				3978DB082E1496040003CF40 /* FoodDeliveryAppTests */,
 			);
 			name = FoodDeliveryApp;
 			packageProductDependencies = (

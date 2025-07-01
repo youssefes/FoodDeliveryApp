@@ -1,5 +1,5 @@
 //
-//  RecentExperiencesLocal.swift
+//  GetOrdersLocal.swift
 //  Created by Asset's Macbook Pro on 01/07/2025.
 //  Copyright © 2025 youssef. All rights reserved.
 
@@ -66,9 +66,9 @@ final class GetOrdersLocal: GetOrdersLocalProtocol {
             entity.restaurantImage = order.restaurantImage
             entity.status = order.status?.rawValue
             try context.save()
-            print("✅ Experience \(order.id) updated in Core Data.")
+            print("✅ order \(order.id) updated in Core Data.")
         } else {
-            print("⚠️ No matching ExperienceEntity found for id: \(order.id)")
+            print("⚠️ No matching order found for id: \(order.id)")
         }
     }
 }

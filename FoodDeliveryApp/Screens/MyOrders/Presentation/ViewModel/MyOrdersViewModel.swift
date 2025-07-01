@@ -6,8 +6,7 @@
 import Foundation
 import Combine
 
-@MainActor
-class MyOrderViewModel: BaseViewModel, ObservableObject {
+class MyOrdersViewModel: BaseViewModel, ObservableObject {
     @Published var orders: [OrderData] = []
     private var getOrdersUseCase: GetOrdersUseCaseProtocol
     
@@ -18,7 +17,7 @@ class MyOrderViewModel: BaseViewModel, ObservableObject {
     // MARK: - get Orders
     func getOrders() {
         self.state = .loading()
-        Task { [weak self] in
+        Task { @MainActor [weak self] in
             guard let self else { return }
             do {
                 let orders = try await getOrdersUseCase.getOrders()

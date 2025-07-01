@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct OrderView: View {
-    @ObservedObject var viewModel: MyOrderViewModel
+    @ObservedObject var viewModel: MyOrdersViewModel
     var order: OrderData
     var trackAction: ((_ orderId: Int) -> Void)
     var body: some View {
