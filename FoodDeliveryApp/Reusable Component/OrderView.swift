@@ -8,7 +8,7 @@ import SwiftUI
 
 struct OrderView: View {
     @ObservedObject var viewModel: MyOrderViewModel
-    @Binding var order: OrderData
+    var order: OrderData
     var trackAction: ((_ orderId: Int) -> Void)
     var body: some View {
         VStack(alignment: .leading,spacing: Dimensions.d10){

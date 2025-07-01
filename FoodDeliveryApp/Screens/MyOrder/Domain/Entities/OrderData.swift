@@ -3,7 +3,7 @@
 
 
 import Foundation
-struct OrderData : Codable, Equatable {
+struct OrderData : Codable, Equatable, Hashable, Identifiable {
 	let id : Int
     var restaurant : String
 	var restaurantImage : String
@@ -11,12 +11,10 @@ struct OrderData : Codable, Equatable {
 }
 
 
-enum orderStatus: String, Codable {
+enum orderStatus: String, Codable, Hashable {
     case completed =  "Completed"
     case processing = "Processing"
     case preparing = "Preparing"
     case delivery = "Delivery"
-    case pending = "Pending"
     case cancel = "Cancel"
-    case order = "Order"
 }

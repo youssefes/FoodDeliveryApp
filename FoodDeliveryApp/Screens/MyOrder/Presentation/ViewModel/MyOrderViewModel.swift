@@ -15,13 +15,13 @@ class MyOrderViewModel: BaseViewModel, ObservableObject {
         self.getOrdersUseCase = getOrdersUseCase
     }
     
-// MARK: - get Orders
+    // MARK: - get Orders
     func getOrders() {
         self.state = .loading()
         Task { [weak self] in
             guard let self else { return }
             do {
-                let orders = try await getOrdersUseCase.GetOrders()
+                let orders = try await getOrdersUseCase.getOrders()
                 self.orders = orders
                 self.state = .successful
             } catch {

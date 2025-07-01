@@ -8,25 +8,33 @@ import SwiftUI
 struct MyOrderScreen: View {
     @StateObject var viewModel = MyOrderViewModel()
     var body: some View {
-        BaseView(state: $viewModel.state) {
-            VStack{
-                ScrollView{
-                    LazyVStack(spacing: 20){
-                        ForEach($viewModel.orders,id:\.id) { order in
-                            OrderView(viewModel: viewModel, order: order, trackAction: { orderId in
-                                print("Tarcking \(orderId)")
-                            })
+        NavigationStack {
+            BaseView(state: $viewModel.state) {
+                ScrollView(showsIndicators: false) {
+                    listOfOrders
+                        .navigationDestination(for: OrderData.self) { order in
+                            OrderDetailsScreen(orderId: order.id)
                         }
-                    }
-                    .padding(.vertical,4)
+                        .padding(.vertical,4)
+                }
+                .navigationTitle("Orders")
+                .task {
+                    viewModel.getOrders()
                 }
             }
-            .task {
-                viewModel.getOrders()
+        }
+    }
+    
+    var listOfOrders: some View {
+        LazyVStack(spacing: 20){
+            ForEach(viewModel.orders,id:\.id) { order in
+                NavigationLink(value: order) {
+                    OrderView(viewModel: viewModel, order: order, trackAction: { orderId in
+                        print("Tarcking \(orderId)")
+                    })
+                }
             }
         }
-        .toolbar(.hidden, for: .navigationBar)
-        .background(DesignSystem.Colors.background.color)
     }
 }
 

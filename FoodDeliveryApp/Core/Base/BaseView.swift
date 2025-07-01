@@ -36,9 +36,10 @@ struct BaseView<Content>: View where Content: View {
                 Spacer()
             }
         }
+        .background(DesignSystem.Colors.background.color)
         .onChange(of: state) { oldState, newState  in
             if case let .failed(error) = newState {
-                errorMessage = error.localizedDescription 
+                errorMessage = error.localizedDescription
                 showErrorAlert = true
             } else {
                 errorMessage = ""

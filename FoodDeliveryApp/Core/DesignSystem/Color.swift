@@ -13,9 +13,11 @@ extension DesignSystem {
         case background = "background"
         case description = "description"
         case title = "title"
+        case borderColor = "borderColor"
+        case secondary = "secondary"
         var color: Color {
             switch self {
-            case .main,.background,.description,.title:
+            case .main, .secondary, .background, .description, .title, .borderColor:
                 return Color(self.rawValue)
             }
         }
