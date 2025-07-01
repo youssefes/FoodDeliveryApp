@@ -3,6 +3,13 @@
 ## 📱 Overview
 A lightweight food delivery tracking app built with SwiftUI and MVVM. It displays orders and tracks real-time updates via WebSocket.
 
+## Architecture
+
+1. SwiftUI + MVVM
+2. Combine for state
+3. REST + WebSocket via URLSession
+4. Manual Dependency Injection
+
 ## 🔧 Setup Instructions
 
 1. Clone the repo
