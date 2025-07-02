@@ -57,7 +57,7 @@ final class GetOrdersLocal: GetOrdersLocalProtocol {
 
     func updateOrder(order: OrderData) throws {
         let request: NSFetchRequest<OrderModel> = OrderModel.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", order.id)
+        request.predicate = NSPredicate(format: "id == %d", order.id)
         request.fetchLimit = 1
 
         if let entity = try context.fetch(request).first {
