@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "7BA685F4-BE16-45EA-9279-BF04B74127D6",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:FoodDeliveryApp.xcodeproj",
+        "identifier" : "3902DAFA2E13C714007BF375",
+        "name" : "FoodDeliveryAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}
