@@ -8,19 +8,17 @@ import SwiftUI
 struct MyOrdersScreen: View {
     @StateObject var viewModel = MyOrdersViewModel()
     var body: some View {
-        NavigationStack {
-            BaseView(state: $viewModel.state) {
-                ScrollView(showsIndicators: false) {
-                    listOfOrders
-                        .navigationDestination(for: OrderData.self) { order in
-                            OrderDetailsScreen(orderId: order.id)
-                        }
-                        .padding(.vertical,4)
-                }
-                .navigationTitle("Orders")
-                .task {
-                    viewModel.getOrders()
-                }
+        BaseView(state: $viewModel.state) {
+            ScrollView(showsIndicators: false) {
+                listOfOrders
+                    .navigationDestination(for: OrderData.self) { order in
+                        OrderDetailsScreen(orderId: order.id)
+                    }
+                    .padding(.vertical,4)
+            }
+            .navigationTitle("Orders")
+            .task {
+                viewModel.getOrders()
             }
         }
     }

@@ -11,7 +11,7 @@ import SwiftUI
 struct FoodDeliveryAppApp: App {
     var body: some Scene {
         WindowGroup {
-            MyOrdersScreen()
+            OnboardingScreen()
         }
     }
 }

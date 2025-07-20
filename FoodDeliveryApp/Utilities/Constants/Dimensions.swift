@@ -134,5 +134,8 @@ enum Dimensions {
     static let d184: CGFloat = 184
     static let d185: CGFloat = 185
     static let d200: CGFloat = 200
+    static let d250: CGFloat = 250
     static let d285: CGFloat = 285
+    static let d410: CGFloat = 410
+    static let d300: CGFloat = 300
 }
