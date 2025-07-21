@@ -8,15 +8,26 @@ import SwiftUI
 struct StartedScreen: View {
     @EnvironmentObject var coordinator: AppCoordinator
     var body: some View {
+        if UserUtilites.onboarded() {
+            NavigationStack(path: $coordinator.path) {
+                content
+                    .CoordinatorDestination()
+            }
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
         VStack{
             Spacer()
             Image("logo")
-                .padding(.bottom, Dimensions.d100)
+                .padding(.bottom, Dimensions.d50)
             VStack(spacing: Dimensions.d16){
                 Text("Let's get started !".localized)
                     .font(Font.custom(AppFont.medium.name, size: Dimensions.d30))
                 Text("Sign in to your Delivery account and Explore \nour latest exclusive ")
-                .font(Font.custom(AppFont.medium.name, size: Dimensions.d14))
+                    .font(Font.custom(AppFont.medium.name, size: Dimensions.d14))
             }
             .multilineTextAlignment(.center)
             .foregroundColor(.white)

@@ -5,7 +5,7 @@
 
 import Foundation
 import Combine
-class SignUpViewModel: ObservableObject {
+class SignUpViewModel: BaseViewModel, ObservableObject {
     @Published var phone: String = ""
     @Published var vaildPhone: Bool = false
     @Published var email: String = ""
@@ -18,61 +18,45 @@ class SignUpViewModel: ObservableObject {
     @Published var vaildConfirmPassword: Bool = false
     
     @Published var navigate: Bool = false
-    @Published var loaging: Bool = false
-    @Published var error: String = ""
-    @Published var hasError: Bool = false
-    private var subs = Set<AnyCancellable>()
     
-    // MARK: - login request
+    private var signUpUseCase: SignUpUseCaseProtocol
+    init(signUpUseCase: SignUpUseCaseProtocol = SignUpUseCase()) {
+        self.signUpUseCase = signUpUseCase
+    }
+    // MARK: - Sign Up request
     func register() {
-//        guard phone.isValid(type: .mobileNumber) else {
-//            vaildPhone = true
-//            return
-//        }
-//        guard name.isValid(type: .required(localizedFieldName: "")) else {
-//            vaildName = true
-//            return
-//        }
-//        guard email.isValid(type: .email) else {
-//            vaildEmail = true
-//            return
-//        }
-//        guard password.isValid(type: .required(localizedFieldName: "")) else {
-//            vaildPassword = true
-//            return
-//        }
-//        let registerRquestModel = RegisterRquestModel(email: email, username: name, deviceType: "ios", mobile: "\(phone)", password: password, fcmToken: "notReisterToNotification")
-//        useCase = RegisterUseCase(registerRquestModel: registerRquestModel)
-//        useCase?.willProcess = { [weak self] in
-//            guard let self = self else {return}
-//            self.loaging = true
-//            self.navigate = false
-//            self.error = ""
-//            self.hasError = false
-//        }
-//        useCase?.execute(BaseModel<Double>.self).sink { [weak self] complition in
-//            guard let self = self  else {return}
-//            DispatchQueue.main.async {
-//                self.loaging = false
-//                switch complition {
-//                case .finished:
-//                   print("finish")
-//                case .failure(let error):
-//                    self.error = error.message.localized
-//                    self.hasError = true
-//                }
-//            }
-//        } receiveValue: {[weak self]  resulte in
-//            guard let self = self else {return}
-//            DispatchQueue.main.async {
-//                if resulte.success {
-//                    print(resulte)
-//                    self.navigate = true
-//                } else {
-//                    self.error = resulte.message ?? ""
-//                    self.hasError = true
-//                }
-//            }
-//        }.store(in: &subs)
+        guard phone.isValid(type: .mobileNumber) else {
+            vaildPhone = true
+            return
+        }
+        guard name.isValid(type: .required(localizedFieldName: "")) else {
+            vaildName = true
+            return
+        }
+        guard email.isValid(type: .email) else {
+            vaildEmail = true
+            return
+        }
+        guard password.isValid(type: .required(localizedFieldName: "")) else {
+            vaildPassword = true
+            return
+        }
+        self.state = .loading()
+      
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                let user = try await signUpUseCase.signUp(signUpRequestModel: SignUpRequestModel(email: email, password: password, confirmPassword: confirmPassword, name: name))
+                UserUtilites.saveUser(userDate: user)
+                state = .successful
+            } catch {
+                print(error)
+                if let networkError = error as? NetworkError {
+                    state = .failed(networkError)
+                } else {
+                    state = .failed(NetworkError.requestFailed(error))
+                }
+            }
+        }
     }
 }

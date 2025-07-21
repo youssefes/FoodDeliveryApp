@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct FoodDeliveryAppApp: App {
+    @StateObject var coordinator = AppCoordinator()
     var body: some Scene {
         WindowGroup {
-            StartedScreen()
+            if UserUtilites.onboarded() {
+                StartedScreen()
+                    .environmentObject(coordinator)
+            } else {
+                OnboardingScreen()
+            }
         }
     }
 }

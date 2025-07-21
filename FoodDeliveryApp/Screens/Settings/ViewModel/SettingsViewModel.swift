@@ -14,13 +14,9 @@ struct ProfileItem: Hashable {
     var langauge: Bool = false
 }
 
-class SettingsViewModel: ObservableObject {
-    @Published var showSelectImage: Bool = false
-    @Published var showSelectImageGallery: Bool = false
-    @Published var coverImage = UIImage()
-    @Published var profileImage: String = "https://api.dicebear.com/8.x/avataaars/png?seed=78&size=300"
+class SettingsViewModel: BaseViewModel, ObservableObject {
+    @Published var profileImage: String = ""
     @Published var userName: String = ""
-    
     
     @Published var profileItems: [ProfileItem]  = [
         ProfileItem(image: "notification", name: "Notifications"),
@@ -30,8 +26,26 @@ class SettingsViewModel: ObservableObject {
         ProfileItem(image: "power", name: "Logout", logOut: true)
     ]
     
-    // MARK: - login request
-    func UpdateProfile() {
-        
+    private var getProfileUseCase: GetProfileUseCaseProtocol
+    
+    init(getProfileUseCase: GetProfileUseCaseProtocol = GetProfileUseCase()) {
+        self.getProfileUseCase = getProfileUseCase
+    }
+    // MARK: - get Profile request
+    func getProfile() async {
+        do {
+            let user = try await getProfileUseCase.getProfile()
+            UserUtilites.saveUser(userDate: user)
+            profileImage = user.image
+            userName = user.username
+            state = .successful
+        } catch {
+            print(error)
+            if let networkError = error as? NetworkError {
+                state = .failed(networkError)
+            } else {
+                state = .failed(NetworkError.requestFailed(error))
+            }
+        }
     }
 }

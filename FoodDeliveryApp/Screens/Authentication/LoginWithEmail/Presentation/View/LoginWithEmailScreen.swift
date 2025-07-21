@@ -9,49 +9,47 @@ struct LoginWithEmailScreen: View {
     @StateObject var viewModel = LoginWithEmailViewModel()
     @EnvironmentObject var coordinator: AppCoordinator
     var body: some View {
-        ZStack{
-            DesignSystem.Colors.main.color
-                .ignoresSafeArea()
-            VStack{
-                ScrollView(showsIndicators: false){
-                    topView
-                    inputsView
-                    VStack(spacing: Dimensions.d12){
-                        SecondaryButton(title: "Continue".localized) {
-                            viewModel.login()
+        BaseView(state: $viewModel.state) {
+            ZStack{
+                DesignSystem.Colors.main.color
+                    .ignoresSafeArea()
+                VStack{
+                    ScrollView(showsIndicators: false){
+                        topView
+                        inputsView
+                        VStack(spacing: Dimensions.d12){
+                            SecondaryButton(title: "Login".localized) {
+                                viewModel.login()
+                            }
                         }
                     }
-                }
-                .padding()
-                Spacer()
-                HStack{
+                    .padding()
+                    
                     Spacer()
-                    Image("buttomshape")
-                        .resizable()
-                        .frame(width: Dimensions.d250, height: Dimensions.d80)
+                    
+                    HStack{
+                        Spacer()
+                        Image("buttomshape")
+                            .resizable()
+                            .frame(width: Dimensions.d250, height: Dimensions.d80)
+                    }
                 }
             }
-            if viewModel.loaging {
-                Spacer()
-                ShowProgressView()
-                    .padding(.bottom, Dimensions.d1)
-                Spacer()
+            .ignoresSafeArea()
+            .onChange(of: viewModel.navigate) { oldValue, navigate in
+                if navigate {
+                    coordinator.navigate(to: .dashboard)
+                }
             }
-            
-        }
-        .ignoresSafeArea()
-        .onChange(of: viewModel.navigate) { oldValue, navigate in
-            if navigate {
-            }
-        }
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    coordinator.pop()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.white) // arrow color
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        coordinator.pop()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.white) // arrow color
+                    }
                 }
             }
         }
@@ -92,7 +90,6 @@ struct LoginWithEmailScreen: View {
                         .font(Font.custom(AppFont.medium.name, size: Dimensions.d14))
                         .foregroundColor(DesignSystem.Colors.secondary.color)
                 }
-
             }
         }
         .padding(.bottom,Dimensions.d20)

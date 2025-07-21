@@ -32,6 +32,8 @@ extension View {
                 SettingsScreen()
             case .AddNewOrder:
                 AddNewOrderView()
+            case .dashboard:
+                DashboardScreen()
             }
         }
     }

@@ -12,6 +12,21 @@ import SwiftUI
 struct DashboardScreen: View {
     @EnvironmentObject var coordinator: AppCoordinator
     var body: some View {
+        if UserUtilites.isLogin() {
+            if coordinator.path.count > 1 {
+                content
+            } else {
+                NavigationStack(path: $coordinator.path) {
+                    content
+                        .CoordinatorDestination()
+                }
+            }
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
         VStack(alignment: .trailing, spacing: Dimensions.d24) {
             HStack {
                 Text("Welcome 👋")
@@ -39,7 +54,7 @@ struct DashboardScreen: View {
             .background(DesignSystem.Colors.background.color)
             .cornerRadius(Dimensions.d16)
             .padding(.horizontal)
-
+            
             VStack(spacing: Dimensions.d12) {
                 QuickActionButton(title: "View All Orders", icon: "list.bullet.rectangle") {
                     coordinator.navigate(to: .order)
@@ -53,7 +68,7 @@ struct DashboardScreen: View {
                 }
             }
             .padding(.horizontal)
-
+            
             Spacer()
         }
         .padding(.top)

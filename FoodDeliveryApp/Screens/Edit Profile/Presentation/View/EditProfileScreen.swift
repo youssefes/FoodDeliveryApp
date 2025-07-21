@@ -11,6 +11,12 @@ struct EditProfileScreen: View {
     @StateObject var viewModel = EditProfileViewModel()
     @EnvironmentObject var coordinator: AppCoordinator
     var body: some View {
+        BaseView(state: $viewModel.state) {
+            content
+        }
+    }
+    
+    var content: some View {
         ZStack{
             VStack(spacing: 10){
                 InputView(text: $viewModel.userName, validated: $viewModel.vaildUserName, keywordType: .emailAddress, placeholder: "Name", validatorType: .email)

@@ -48,7 +48,7 @@ class OrderDetailsViewModel: BaseViewModel, ObservableObject {
     }
     
     func lisenToOrderStatus(orderId: Int) {
-        guard let url = URL(string: "ws://localhost:8080/orders/updates") else { return }
+        guard let url = URL(string: APIUrls.socketConnection) else { return }
         socketSessionHandler = SocketClient()
         Task { await  socketSessionHandler.connect(with: URLRequest(url: url))}
         socketSessionHandler.onReceiveMessage.sink { [weak self] data in

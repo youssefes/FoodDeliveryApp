@@ -17,4 +17,5 @@ enum AppScreens: Hashable {
     case orderDetails(id: Int)
     case Settings
     case AddNewOrder
+    case dashboard
 }

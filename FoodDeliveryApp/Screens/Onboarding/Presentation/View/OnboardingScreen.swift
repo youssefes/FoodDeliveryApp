@@ -25,7 +25,9 @@ struct OnboardingScreen: View {
             .CoordinatorDestination()
         }
         .environmentObject(coordinator)
-        .onAppear{ }
+        .onAppear{
+            UserUtilites.saveOnbarding(Onbarding: true)
+        }
     }
     
     var skipButton: some View {

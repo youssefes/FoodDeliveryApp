@@ -34,3 +34,19 @@ extension String {
     }
 
 }
+
+extension String {
+    func indexOf(char: Character) -> Int? {
+        return firstIndex(of: char)?.utf16Offset(in: self)
+    }
+
+    func validate(for type: ValidatorType) throws {
+        let validator = ValidatorResolver.validate( for: type)
+        return try validator.validate(self)
+    }
+    func isValid(type: ValidatorType) -> Bool {
+        let validator = ValidatorResolver.validate(for: type)
+        return validator.isValid(self)
+    }
+
+}

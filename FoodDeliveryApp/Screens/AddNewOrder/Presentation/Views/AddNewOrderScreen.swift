@@ -20,7 +20,7 @@ struct AddNewOrderView: View {
                     ) {
                         InputView(text: $viewModel.customerName, validated: $viewModel.vaildCustomerName, placeholder: "customer Name", validatorType: .required(localizedFieldName: ""))
                         InputView(text: $viewModel.restaurant, validated: $viewModel.vaildRestaurant, placeholder: "restaurant", validatorType: .required(localizedFieldName: ""))
-                        InputView(text: $viewModel.deliveryDddress, validated: $viewModel.vaildDeliveryDddress, placeholder: "delivery address", validatorType: .required(localizedFieldName: ""))
+                        InputView(text: $viewModel.deliveryAddress, validated: $viewModel.vaildDeliveryAddress, placeholder: "delivery address", validatorType: .required(localizedFieldName: ""))
                     }
                     
                     Section(header:
