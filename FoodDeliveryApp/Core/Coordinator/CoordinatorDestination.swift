@@ -24,6 +24,14 @@ extension View {
                 ForgetPasswordScreen()
             case .newPassword:
                 NewPasswordScreen()
+            case .order:
+                MyOrdersScreen()
+            case .orderDetails(let id):
+                OrderDetailsScreen(orderId: id)
+            case .Settings:
+                SettingsScreen()
+            case .AddNewOrder:
+                AddNewOrderView()
             }
         }
     }

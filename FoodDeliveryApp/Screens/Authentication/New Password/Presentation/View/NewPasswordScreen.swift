@@ -1,9 +1,7 @@
 //
 //  NewPasswordScreen.swift
-//  GO
-//
-//  Created by POMAC-IOS on 04/03/2024.
-//
+//  Created by Asset's Macbook Pro on 21/07/2025.
+//  Copyright © 2025 youssef. All rights reserved.
 
 import SwiftUI
 
@@ -17,7 +15,7 @@ struct NewPasswordScreen: View {
                 
                 InputView(text: $viewModel.confirmPassword, validated: $viewModel.vaildconfirmPassword, placeholder: "Confirm Password", validatorType: .confirmPassword(password: viewModel.password),isconfirmPassword: true)
                 VStack(spacing: 5){
-                    SecondaryButton(title: "Continue".localized) {
+                    MainButton(title: "Send".localized) {
                        
                     }
                 }
@@ -30,16 +28,10 @@ struct NewPasswordScreen: View {
 //                    coordinator.push(.o)
                 }
             }
-            if viewModel.loaging {
-                Spacer()
-                ShowProgressView()
-                    .padding(.bottom, 1)
-                Spacer()
-            }
         }
         .alert(viewModel.error, isPresented: $viewModel.hasError, actions: {})
         .ignoresSafeArea()
-        .background(DesignSystem.Colors.main.color)
+        .background(DesignSystem.Colors.background.color)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -47,7 +39,7 @@ struct NewPasswordScreen: View {
                     coordinator.pop()
                 }) {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.white) // arrow color
+                        .foregroundColor(.black) // arrow color
                 }
             }
         }

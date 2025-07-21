@@ -1,9 +1,7 @@
 //
 //  ForgetPasswordViewModel.swift
-//  GO
-//
-//  Created by POMAC-IOS on 04/03/2024.
-//
+//  Created by Asset's Macbook Pro on 21/07/2025.
+//  Copyright © 2025 youssef. All rights reserved.
 
 import Foundation
 import Combine

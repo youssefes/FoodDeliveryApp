@@ -64,7 +64,7 @@ struct InputView: View {
                         .padding(.horizontal, Dimensions.d10)
                     } else {
                         HStack {
-                            VStack(alignment: .leading , spacing: 1){
+                            VStack(alignment: .leading , spacing: Dimensions.d1){
                                 if !text.isEmpty {
                                     Text(placeholder.localized)
                                         .font(.custom(AppFont.light.name, size: Dimensions.d14))

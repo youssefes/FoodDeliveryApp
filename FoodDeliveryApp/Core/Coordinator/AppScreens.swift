@@ -13,4 +13,8 @@ enum AppScreens: Hashable {
     case register
     case forgotPassword
     case newPassword
+    case order
+    case orderDetails(id: Int)
+    case Settings
+    case AddNewOrder
 }

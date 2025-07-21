@@ -1,9 +1,7 @@
 //
 //  StartedScreen.swift
-//  GO
-//
-//  Created by jooo on 05/12/2023.
-//
+//  Created by Asset's Macbook Pro on 20/07/2025.
+//  Copyright © 2025 youssef. All rights reserved.
 
 import SwiftUI
 
@@ -17,7 +15,7 @@ struct StartedScreen: View {
             VStack(spacing: Dimensions.d16){
                 Text("Let's get started !".localized)
                     .font(Font.custom(AppFont.medium.name, size: Dimensions.d30))
-                Text("Sign in to your Talabat account and Explore \nour latest exclusive ")
+                Text("Sign in to your Delivery account and Explore \nour latest exclusive ")
                 .font(Font.custom(AppFont.medium.name, size: Dimensions.d14))
             }
             .multilineTextAlignment(.center)
