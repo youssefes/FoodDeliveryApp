@@ -34,17 +34,39 @@ http://localhost:3000
 - WS: ws://localhost:8080/orders/updates
 
 ## 📱 Screenshots
-![Onboarding](Screenshots/onboarding1.png)
-![Onboarding](Screenshots/onboarding2.png)
-![Onboarding](Screenshots/onboarding3.png)
-![Start](Screenshots/start.png)
-![login](Screenshots/login.png)
-![Register](Screenshots/register.png)
-![Forget Password](Screenshots/forgetPassword.png)
-![New Password](Screenshots/newPassword.png)
-![Dashboard](Screenshots/dashboard.png)
-![Order List](Screenshots/orderList.png)
-![Order Details](Screenshots/orderDetails.png)
-![Add Order](Screenshots/addOrder.png)
-![Settings](Screenshots/settings.png)
-![Profile](Screenshots/Profile.png)
+
+<p float="left">
+  <img src="Screenshots/onboarding1.png" width="200"/>
+  <img src="Screenshots/onboarding2.png" width="200"/>
+</p>
+
+<p float="left">
+  <img src="Screenshots/onboarding3.png" width="200"/>
+  <img src="Screenshots/start.png" width="200"/>
+</p>
+
+<p float="left">
+  <img src="Screenshots/login.png" width="200"/>
+  <img src="Screenshots/register.png" width="200"/>
+</p>
+
+<p float="left">
+  <img src="Screenshots/forgetPassword.png" width="200"/>
+  <img src="Screenshots/newPassword.png" width="200"/>
+</p>
+
+<p float="left">
+  <img src="Screenshots/dashboard.png" width="200"/>
+  <img src="Screenshots/orderList.png" width="200"/>
+</p>
+
+<p float="left">
+  <img src="Screenshots/orderDetails.png" width="200"/>
+  <img src="Screenshots/addOrder.png" width="200"/>
+</p>
+
+<p float="left">
+  <img src="Screenshots/settings.png" width="200"/>
+  <img src="Screenshots/Profile.png" width="200"/>
+</p>
+
