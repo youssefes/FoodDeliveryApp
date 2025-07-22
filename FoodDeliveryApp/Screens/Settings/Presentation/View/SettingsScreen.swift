@@ -65,7 +65,8 @@ struct SettingsScreen: View {
             ForEach(0..<viewModel.profileItems.count, id: \.self) { index in
                 if viewModel.profileItems[index].logOut {
                     Button {
-                      
+                        UserUtilites.deleteUser()
+                        coordinator.resetTo(.start)
                     } label: {
                         MenuView(iconName: viewModel.profileItems[index].image, name: viewModel.profileItems[index].name, isLogOut: viewModel.profileItems[index].logOut,language: viewModel.profileItems[index].langauge)
                             .tint(.black)
@@ -76,15 +77,8 @@ struct SettingsScreen: View {
                 }else{
                     Button {
                         switch index {
-                        case 0:
-                            print(viewModel.profileItems[index].name)
                         case 1:
                             coordinator.navigate(to: .editProfile)
-                        case 2:
-                            print(viewModel.profileItems[index].name)
-                        case 3:
-                            print(viewModel.profileItems[index].name)
-                          
                         default:
                             print(viewModel.profileItems[index].name)
                         }

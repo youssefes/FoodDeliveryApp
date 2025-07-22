@@ -21,4 +21,9 @@ final class AppCoordinator: ObservableObject {
     func popToRoot() {
         path.removeLast(path.count)
     }
+    
+    func resetTo(_ newRoot: AppScreens) {
+        path = NavigationPath() // Clear all
+        path.append(newRoot)    // Set new root
+    }
 }

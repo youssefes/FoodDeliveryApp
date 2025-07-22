@@ -14,10 +14,22 @@ struct OrderView: View {
             AsyncImageView(url: URL(string: order.restaurantImage))
                 .frame(height: Dimensions.d140)
                 .cornerRadius(Dimensions.d10)
-                
-            Text("\(order.restaurant)")
-                .font(Font.custom(AppFont.bold.name, size: Dimensions.d16))
-                .foregroundColor(.black)
+             
+            HStack{
+                Text("\(order.restaurant)")
+                    .font(Font.custom(AppFont.bold.name, size: Dimensions.d16))
+                    .foregroundColor(.black)
+                Spacer()
+                HStack{
+                    Text("Customer Name:")
+                        .font(Font.custom(AppFont.medium.name, size: Dimensions.d12))
+                        .foregroundColor(DesignSystem.Colors.title.color)
+                    Text("\(order.customerName)")
+                        .font(Font.custom(AppFont.medium.name, size: Dimensions.d16))
+                        .foregroundColor(DesignSystem.Colors.main.color)
+                }
+            }
+          
             
             HStack{
                 HStack{
@@ -33,7 +45,7 @@ struct OrderView: View {
                     Text("Order Status:")
                         .font(Font.custom(AppFont.medium.name, size: Dimensions.d12))
                         .foregroundColor(DesignSystem.Colors.title.color)
-                    Text("\(order.status?.rawValue ?? "")")
+                    Text("\(order.status.rawValue)")
                         .font(Font.custom(AppFont.medium.name, size: Dimensions.d14))
                         .foregroundColor(DesignSystem.Colors.description.color)
                 }

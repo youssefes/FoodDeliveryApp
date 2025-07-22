@@ -6,15 +6,17 @@ import Foundation
 struct OrderData : Codable, Equatable, Hashable, Identifiable {
 	let id : Int
     var restaurant : String
+    var customerName : String
 	var restaurantImage : String
-	var status : orderStatus?
+	var status : orderStatus
 }
 
 
-enum orderStatus: String, Codable, Hashable {
+enum orderStatus: String, Codable, Hashable, CaseIterable {
     case completed =  "Completed"
     case processing = "Processing"
     case preparing = "Preparing"
     case delivery = "Delivery"
     case cancel = "Cancel"
+    case all = "All"
 }

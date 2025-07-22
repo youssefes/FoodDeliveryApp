@@ -78,6 +78,8 @@ struct StatusProgressView: View {
                         .padding(.trailing)
                     StatusCircle(name: orderStatus.cancel.rawValue,circleStatus: .notActive)
                 }
+             default:
+                Color.clear
             }
         }
       

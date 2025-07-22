@@ -39,7 +39,8 @@ final class GetOrdersLocal: GetOrdersLocalProtocol {
                 entity.id = Int64(order.id)
                 entity.restaurant = order.restaurant
                 entity.restaurantImage = order.restaurantImage
-                entity.status = order.status?.rawValue
+                entity.customerName = order.customerName
+                entity.status = order.status.rawValue
             }
         }
 
@@ -51,7 +52,7 @@ final class GetOrdersLocal: GetOrdersLocalProtocol {
         let result = try context.fetch(request)
         
         return result.map {
-            return OrderData(id: Int($0.id), restaurant: $0.restaurant ?? "", restaurantImage: $0.restaurantImage ?? "" , status:  orderStatus(rawValue: $0.status ?? ""))
+            return OrderData(id: Int($0.id), restaurant: $0.restaurant ?? "", customerName: $0.customerName ?? "", restaurantImage: $0.restaurantImage ?? "" , status: orderStatus(rawValue: $0.status ?? "") ?? .all)
         }
     }
 
@@ -64,7 +65,8 @@ final class GetOrdersLocal: GetOrdersLocalProtocol {
             // 🔁 Update the fields
             entity.restaurant = order.restaurant
             entity.restaurantImage = order.restaurantImage
-            entity.status = order.status?.rawValue
+            entity.status = order.status.rawValue
+            entity.customerName = order.customerName
             try context.save()
             print("✅ order \(order.id) updated in Core Data.")
         } else {
