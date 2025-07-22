@@ -36,31 +36,23 @@ http://localhost:3000
 ## 📱 Screenshots
 
 <p float="left">
-  <img src="Screenshots/onboarding1.png" width="200"/>
-  <img src="Screenshots/onboarding2.png" width="200"/>
+<img src="Screenshots/onboarding1.png" width="200"/>
+<img src="Screenshots/onbording2.png" width="200"/>
+<img src="Screenshots/onboarding3.png" width="200"/>
 </p>
 
 <p float="left">
-  <img src="Screenshots/onboarding3.png" width="200"/>
-  <img src="Screenshots/start.png" width="200"/>
-</p>
-
-<p float="left">
-  <img src="Screenshots/login.png" width="200"/>
-  <img src="Screenshots/register.png" width="200"/>
-</p>
-
-<p float="left">
-  <img src="Screenshots/forgetPassword.png" width="200"/>
-  <img src="Screenshots/newPassword.png" width="200"/>
+<img src="Screenshots/start.png" width="200"/>
+<img src="Screenshots/login.png" width="200"/>
+<img src="Screenshots/register.png" width="200"/>
 </p>
 
 <p float="left">
   <img src="Screenshots/dashboard.png" width="200"/>
-  <img src="Screenshots/orderList.png" width="200"/>
 </p>
 
 <p float="left">
+  <img src="Screenshots/orderList.png" width="200"/>
   <img src="Screenshots/orderDetails.png" width="200"/>
   <img src="Screenshots/addOrder.png" width="200"/>
 </p>
@@ -68,5 +60,10 @@ http://localhost:3000
 <p float="left">
   <img src="Screenshots/settings.png" width="200"/>
   <img src="Screenshots/Profile.png" width="200"/>
+</p>
+
+<p float="left">
+  <img src="Screenshots/forgetPassword.png" width="200"/>
+  <img src="Screenshots/newPassword.png" width="200"/>
 </p>
 
