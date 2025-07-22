@@ -3,6 +3,7 @@
 ## 📱 Overview
 A lightweight food delivery tracking app built with SwiftUI and MVVM. It displays orders and tracks real-time updates via WebSocket.
 
+
 ## Architecture
 
 1. SwiftUI + MVVM
@@ -13,26 +14,37 @@ A lightweight food delivery tracking app built with SwiftUI and MVVM. It display
 ## 🔧 Setup Instructions
 
 1. Clone the repo
-2. Open in Xcode
+2. setup mocked api using "Mockoon Application" drag FoodDeliveryMockApi.json from Application files to Mockoon and run local server 
 3. Run the app
 
 
 ## 🚀 Mock Server
 
-https://app.beeceptor.com/console/fooddeliveryapp
+http://localhost:3000
 
 ### Endpoints:
 
-- GET /orders
-- GET /orders/{id}
+- POST /register (for user registration)
+- POST /login (for user authentication)
+- GET /orders (list all orders)
+- GET /order/{id} (get details for a specific order)
+- POST /orders (create a new order)
+- GET /profile (get user profile)
+- PUT /profile (update user profile)
 - WS: ws://localhost:8080/orders/updates
 
 ## 📱 Screenshots
-
-### 🧾 Order List
-
+![Onboarding](Screenshots/onboarding1.png)
+![Onboarding](Screenshots/onboarding2.png)
+![Onboarding](Screenshots/onboarding3.png)
+![Start](Screenshots/start.png)
+![login](Screenshots/login.png)
+![Register](Screenshots/register.png)
+![Forget Password](Screenshots/forgetPassword.png)
+![New Password](Screenshots/newPassword.png)
+![Dashboard](Screenshots/dashboard.png)
 ![Order List](Screenshots/orderList.png)
-
-### 🚚 Order Details
-
 ![Order Details](Screenshots/orderDetails.png)
+![Add Order](Screenshots/addOrder.png)
+![Settings](Screenshots/settings.png)
+![Profile](Screenshots/Profile.png)

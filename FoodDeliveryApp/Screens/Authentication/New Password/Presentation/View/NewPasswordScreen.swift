@@ -38,8 +38,13 @@ struct NewPasswordScreen: View {
                 Button(action: {
                     coordinator.pop()
                 }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.black) // arrow color
+                    HStack(spacing: Dimensions.d20){
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black) // arrow color
+                        Text("New Password")
+                            .font(.custom(AppFont.bold.name, size: Dimensions.d24))
+                            .foregroundStyle(.black)
+                    }
                 }
             }
         }

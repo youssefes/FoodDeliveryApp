@@ -46,7 +46,7 @@ struct EditProfileScreen: View {
                     HStack(spacing: Dimensions.d20){
                         Image(systemName: "chevron.left")
                             .foregroundColor(.black) // arrow color
-                        Text("Settings")
+                        Text("Profile")
                             .font(.custom(AppFont.bold.name, size: Dimensions.d24))
                             .foregroundStyle(.black)
                     }
