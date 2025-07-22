@@ -6,6 +6,6 @@
 //
 
 struct OrderUpdateModel: Codable {
-    let orderId: Int
+    let orderId: String
     let status: orderStatus
 }

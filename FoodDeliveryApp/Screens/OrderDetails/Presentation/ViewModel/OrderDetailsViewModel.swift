@@ -55,12 +55,13 @@ class OrderDetailsViewModel: BaseViewModel, ObservableObject {
             print("Connected successfully")
         }
         .store(in: &cancellables)
-        socketSessionHandler.onReceiveMessage.sink { [weak self] data in
-            print("socket" ,  data)
+        socketSessionHandler.onReceiveMessage
+            .receive(on: RunLoop.main)
+            .sink { [weak self] data in
             guard let self else { return }
             do {
                 let resulte  = try JSONDecoder().decode(OrderUpdateModel.self, from: data)
-                if resulte.orderId == orderId {
+                if resulte.orderId == "\(orderId)" {
                     orderStatus = resulte.status
                 }
             } catch {

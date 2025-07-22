@@ -352,7 +352,7 @@
             "responses": [
                 {
                     "uuid": "bac8f89e-bf5d-4e7f-a41a-8533a0b49310",
-                    "body": "{\n\"success\":  true,\n\"data\": {\n  \"id\": 2,\n  \"status\": \"Delivery\",\n  \"subTotal\": \"50.00\",\n  \"delivery\": \"5.00\",\n  \"total\": \"55.00\",\n\"restaurant\": \"Burger Town\",\n  \"restaurantImage\": \"https://media.istockphoto.com/id/1309352410/photo/cheeseburger-with-tomato-and-lettuce-on-wooden-board.jpg?s=1024x1024&w=is&k=20&c=XXp34bPwWkHPUXbZQRJpR1w2YUSpYZUB_yNdeDlVXlQ=\",\n  \"owner\": {\n    \"id\": 1,\n    \"name\": \"Alice Smith\",\n    \"phone\": \"+1234567890\"\n  },\n  \"address\": \"123 Main Street, Cityville\"\n}\n}",
+                    "body": "{\n\"success\":  true,\n\"data\": {\n  \"id\": 2,\n  \"status\": \"Preparing\",\n  \"subTotal\": \"50.00\",\n  \"delivery\": \"5.00\",\n  \"total\": \"55.00\",\n\"restaurant\": \"Burger Town\",\n  \"restaurantImage\": \"https://media.istockphoto.com/id/1309352410/photo/cheeseburger-with-tomato-and-lettuce-on-wooden-board.jpg?s=1024x1024&w=is&k=20&c=XXp34bPwWkHPUXbZQRJpR1w2YUSpYZUB_yNdeDlVXlQ=\",\n  \"owner\": {\n    \"id\": 1,\n    \"name\": \"Alice Smith\",\n    \"phone\": \"+1234567890\"\n  },\n  \"address\": \"123 Main Street, Cityville\"\n}\n}",
                     "latency": 0,
                     "statusCode": 200,
                     "label": "",
@@ -490,8 +490,8 @@
             "responses": [
                 {
                     "uuid": "f7b64e77-96b8-48ac-a839-dbd65176183c",
-                    "body": " {\"orderId\": \"order123\", \"status\": \"Preparing\"}\n",
-                    "latency": 0,
+                    "body": "{\"orderId\": \"2\", \"status\": \"Delivery\"}\n",
+                    "latency": 2,
                     "statusCode": 200,
                     "label": "",
                     "headers": [],
@@ -509,8 +509,8 @@
                 }
             ],
             "responseMode": null,
-            "streamingMode": null,
-            "streamingInterval": 100
+            "streamingMode": "UNICAST",
+            "streamingInterval": 10000
         }
     ],
     "rootChildren": [
