@@ -10,5 +10,5 @@ class APIUrls {
     static let login = "/api/login"
     static let register = "/api/register"
     static let getProfile = "api/profile"
-    static let socketConnection = "ws:/localhost:8080/orders/updates"
+    static let socketConnection = "ws://localhost:3000/orders/updates"
 }

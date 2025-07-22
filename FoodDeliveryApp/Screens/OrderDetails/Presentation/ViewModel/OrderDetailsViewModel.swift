@@ -51,7 +51,12 @@ class OrderDetailsViewModel: BaseViewModel, ObservableObject {
         guard let url = URL(string: APIUrls.socketConnection) else { return }
         socketSessionHandler = SocketClient()
         Task { await  socketSessionHandler.connect(with: URLRequest(url: url))}
+        socketSessionHandler.onConnected.sink { [weak self] in
+            print("Connected successfully")
+        }
+        .store(in: &cancellables)
         socketSessionHandler.onReceiveMessage.sink { [weak self] data in
+            print("socket" ,  data)
             guard let self else { return }
             do {
                 let resulte  = try JSONDecoder().decode(OrderUpdateModel.self, from: data)
