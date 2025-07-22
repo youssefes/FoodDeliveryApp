@@ -7,6 +7,7 @@ import SwiftUI
 
 struct OrderDetailsScreen: View {
     @StateObject var viewModel =  OrderDetailsViewModel()
+    @EnvironmentObject var coordinator: AppCoordinator
     var orderId: Int
     var body: some View {
         BaseView(state: $viewModel.state) {
@@ -18,6 +19,22 @@ struct OrderDetailsScreen: View {
                 }
                 .task{
                     viewModel.getOrderDetails(orderId: orderId)
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        coordinator.pop()
+                    }) {
+                        HStack(spacing: 20){
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.black) // arrow color
+                            Text("Order Details")
+                                .font(.custom(AppFont.bold.name, size: 24))
+                                .foregroundStyle(.black)
+                        }
+                    }
                 }
             }
         }

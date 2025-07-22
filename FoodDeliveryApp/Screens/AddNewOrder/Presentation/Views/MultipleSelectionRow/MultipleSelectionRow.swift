@@ -20,7 +20,7 @@ struct MultipleSelectionRow: View {
         Button(action: self.action) {
             HStack {
                 Text(Model.title)
-                    .font(.custom(AppFont.light.name, size: 16))
+                    .font(.custom(AppFont.light.name, size: Dimensions.d16))
                     .foregroundStyle(.black)
                 Spacer()
                 if Model.isSelected {
@@ -28,7 +28,7 @@ struct MultipleSelectionRow: View {
                         .foregroundColor(DesignSystem.Colors.main.color)
                 }
             }
-            .padding(16)
+            .padding(Dimensions.d16)
             .overlay(RoundedRectangle(cornerRadius: Dimensions.d8)
                 .stroke(Model.isSelected ? DesignSystem.Colors.main.color : DesignSystem.Colors.borderColor.color, lineWidth:  Dimensions.d1)
             )

@@ -14,7 +14,7 @@ struct SignUpScreen: View {
         })
         .onChange(of: viewModel.navigate) { oldValue, newValue in
             if newValue{
-                coordinator.navigate(to: .dashboard)
+                coordinator.navigate(to: .dashboard(fromLogin: true))
             }
         }
         .background(DesignSystem.Colors.main.color)
@@ -52,6 +52,7 @@ struct SignUpScreen: View {
             }
             .padding(.bottom, Dimensions.d40)
         }
+        .background(DesignSystem.Colors.main.color)
     }
     
     var topView: some View {
@@ -78,7 +79,7 @@ struct SignUpScreen: View {
     
     var inputFields: some View {
         VStack(spacing: Dimensions.d16){
-            InputView(text: $viewModel.name, validated: $viewModel.vaildName, keywordType: .emailAddress, placeholder: "Name", validatorType: .email)
+            InputView(text: $viewModel.name, validated: $viewModel.vaildName, keywordType: .emailAddress, placeholder: "Name", validatorType: .required(localizedFieldName: ""))
             InputView(text: $viewModel.email, validated: $viewModel.vaildEmail, keywordType: .emailAddress, placeholder: "Email", validatorType: .email)
            
             InputView(text: $viewModel.password, validated: $viewModel.vaildPassword, placeholder: "Password", validatorType: .password)

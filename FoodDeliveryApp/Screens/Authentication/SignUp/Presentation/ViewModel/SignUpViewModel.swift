@@ -6,8 +6,6 @@
 import Foundation
 import Combine
 class SignUpViewModel: BaseViewModel, ObservableObject {
-    @Published var phone: String = ""
-    @Published var vaildPhone: Bool = false
     @Published var email: String = ""
     @Published var vaildEmail: Bool = false
     @Published var name: String = ""
@@ -25,10 +23,6 @@ class SignUpViewModel: BaseViewModel, ObservableObject {
     }
     // MARK: - Sign Up request
     func register() {
-        guard phone.isValid(type: .mobileNumber) else {
-            vaildPhone = true
-            return
-        }
         guard name.isValid(type: .required(localizedFieldName: "")) else {
             vaildName = true
             return
@@ -43,11 +37,12 @@ class SignUpViewModel: BaseViewModel, ObservableObject {
         }
         self.state = .loading()
       
-        Task { [weak self] in
+        Task { @MainActor [weak self] in
             guard let self else { return }
             do {
                 let user = try await signUpUseCase.signUp(signUpRequestModel: SignUpRequestModel(email: email, password: password, confirmPassword: confirmPassword, name: name))
                 UserUtilites.saveUser(userDate: user)
+                navigate = true
                 state = .successful
             } catch {
                 print(error)

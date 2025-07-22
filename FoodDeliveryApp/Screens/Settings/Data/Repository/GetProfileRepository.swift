@@ -20,7 +20,7 @@ class GetProfileRepository: GetProfileRepositoryProtocol{
     }
     
     func getProfile() async throws -> User  {
-        let loginEndpoint = Endpoint(path: APIUrls.getOrders)
+        let loginEndpoint = Endpoint(path: APIUrls.getProfile)
         do {
             let resulte = try await service.request(loginEndpoint, responseType: BaseModel<User>.self)
             guard let user = resulte.data else {throw NetworkError.invalidResponse}

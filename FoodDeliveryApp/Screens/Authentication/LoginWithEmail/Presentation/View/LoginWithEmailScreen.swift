@@ -38,7 +38,7 @@ struct LoginWithEmailScreen: View {
             .ignoresSafeArea()
             .onChange(of: viewModel.navigate) { oldValue, navigate in
                 if navigate {
-                    coordinator.navigate(to: .dashboard)
+                    coordinator.navigate(to: .dashboard(fromLogin: true))
                 }
             }
             .navigationBarBackButtonHidden(true)

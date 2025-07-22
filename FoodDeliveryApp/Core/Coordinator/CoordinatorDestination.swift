@@ -32,8 +32,10 @@ extension View {
                 SettingsScreen()
             case .AddNewOrder:
                 AddNewOrderView()
-            case .dashboard:
-                DashboardScreen()
+            case .dashboard(let fromLogin):
+                DashboardScreen(fromLogin: fromLogin)
+            case .editProfile:
+                EditProfileScreen()
             }
         }
     }

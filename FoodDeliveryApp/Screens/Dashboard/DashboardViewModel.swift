@@ -7,6 +7,6 @@
 
 import Combine
 
-class DashboardViewModel: ObservableObject {
+class DashboardViewModel: BaseViewModel, ObservableObject {
     
 }

@@ -23,33 +23,41 @@ struct SettingsScreen: View {
             }
             .padding()
         }
-        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    coordinator.pop()
+                }) {
+                    HStack(spacing: 20){
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black) // arrow color
+                        Text("Settings")
+                            .font(.custom(AppFont.bold.name, size: 24))
+                            .foregroundStyle(.black)
+                    }
+                }
+            }
+        }
+        .background(.white)
         .task {
-            await viewModel.getProfile()
+            viewModel.getProfile()
         }
     }
     
     var topView: some View {
         VStack(alignment: .leading){
-            HStack(alignment: .center){
-                ZStack(alignment: .bottomTrailing) {
-                    AsyncImageView(url: URL(string: viewModel.profileImage))
-                        .frame(width: Dimensions.d60, height: Dimensions.d60)
-                        .cornerRadius(Dimensions.d30)
-                }
+            HStack{
+                AsyncImageView(url: URL(string: viewModel.profileImage))
+                    .frame(width: Dimensions.d60, height: Dimensions.d60)
+                    .cornerRadius(Dimensions.d30)
                 Spacer()
-                Button {
-                    coordinator.pop()
-                } label: {
-                    Image("Exit")
-                        .resizable()
-                        .frame(width:Dimensions.d16 ,height: Dimensions.d16)
-                }
             }
             Text(viewModel.userName)
                 .font(.custom(AppFont.medium.name, size: Dimensions.d20))
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.bottom)
     }
     
     var menuItems: some View {
@@ -71,7 +79,7 @@ struct SettingsScreen: View {
                         case 0:
                             print(viewModel.profileItems[index].name)
                         case 1:
-                            print(viewModel.profileItems[index].name)
+                            coordinator.navigate(to: .editProfile)
                         case 2:
                             print(viewModel.profileItems[index].name)
                         case 3:

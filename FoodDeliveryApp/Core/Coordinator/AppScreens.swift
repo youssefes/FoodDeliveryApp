@@ -17,5 +17,6 @@ enum AppScreens: Hashable {
     case orderDetails(id: Int)
     case Settings
     case AddNewOrder
-    case dashboard
+    case dashboard(fromLogin: Bool)
+    case editProfile
 }

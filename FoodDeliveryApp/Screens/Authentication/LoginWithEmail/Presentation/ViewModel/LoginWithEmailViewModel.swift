@@ -28,7 +28,7 @@ class LoginWithEmailViewModel: BaseViewModel, ObservableObject {
         }
         
         self.state = .loading()
-        Task { [weak self] in
+        Task { @MainActor [weak self] in
             guard let self else { return }
             do {
                 let user = try await loginUseCase.login(loginRequestModel: LoginRequestModel(email: email, password: password))
@@ -36,7 +36,6 @@ class LoginWithEmailViewModel: BaseViewModel, ObservableObject {
                 navigate = true
                 state = .successful
             } catch {
-                print(error)
                 if let networkError = error as? NetworkError {
                     state = .failed(networkError)
                 } else {

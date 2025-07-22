@@ -7,16 +7,29 @@ import SwiftUI
 
 struct MyOrdersScreen: View {
     @StateObject var viewModel = MyOrdersViewModel()
+    @EnvironmentObject var coordinator: AppCoordinator
     var body: some View {
         BaseView(state: $viewModel.state) {
             ScrollView(showsIndicators: false) {
                 listOfOrders
-                    .navigationDestination(for: OrderData.self) { order in
-                        OrderDetailsScreen(orderId: order.id)
-                    }
                     .padding(.vertical,4)
             }
-            .navigationTitle("Orders")
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        coordinator.pop()
+                    }) {
+                        HStack(spacing: 20){
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.black) // arrow color
+                            Text("Orders")
+                                .font(.custom(AppFont.bold.name, size: 24))
+                                .foregroundStyle(.black)
+                        }
+                    }
+                }
+            }
             .task {
                 viewModel.getOrders()
             }
@@ -26,10 +39,11 @@ struct MyOrdersScreen: View {
     var listOfOrders: some View {
         LazyVStack(spacing: 20){
             ForEach(viewModel.orders,id:\.id) { order in
-                NavigationLink(value: order) {
-                    OrderView(viewModel: viewModel, order: order, trackAction: { orderId in
-                        print("Tarcking \(orderId)")
-                    })
+                OrderView(viewModel: viewModel, order: order, trackAction: { orderId in
+                    coordinator.navigate(to: .orderDetails(id: orderId))
+                })
+                .onTapGesture {
+                    coordinator.navigate(to: .orderDetails(id: order.id))
                 }
             }
         }

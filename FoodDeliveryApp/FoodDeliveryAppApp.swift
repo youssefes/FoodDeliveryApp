@@ -13,8 +13,13 @@ struct FoodDeliveryAppApp: App {
     var body: some Scene {
         WindowGroup {
             if UserUtilites.onboarded() {
-                StartedScreen()
-                    .environmentObject(coordinator)
+                if UserUtilites.isLogin() {
+                    DashboardScreen()
+                        .environmentObject(coordinator)
+                } else {
+                    StartedScreen()
+                        .environmentObject(coordinator)
+                }
             } else {
                 OnboardingScreen()
             }

@@ -18,11 +18,11 @@ struct EditProfileScreen: View {
     
     var content: some View {
         ZStack{
-            VStack(spacing: 10){
-                InputView(text: $viewModel.userName, validated: $viewModel.vaildUserName, keywordType: .emailAddress, placeholder: "Name", validatorType: .email)
+            VStack(spacing: Dimensions.d10){
+                InputView(text: $viewModel.userName, validated: $viewModel.vaildUserName, keywordType: .emailAddress, placeholder: "Name", validatorType: .required(localizedFieldName: ""))
                 InputView(text: $viewModel.email, validated: $viewModel.vaildEmail, keywordType: .emailAddress, placeholder: "Email", validatorType: .email)
     
-                VStack(spacing: 5){
+                VStack(spacing: Dimensions.d5){
                     MainButton(title: "Save") {
                         viewModel.UpdateProfile()
                     }
@@ -32,16 +32,29 @@ struct EditProfileScreen: View {
             }.padding()
         }
         .background(DesignSystem.Colors.background.color)
-        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarBackButtonHidden(true)
+        .alert("Success", isPresented: $viewModel.showUpdateScucess, actions: {
+            Button("OK", role: .cancel) {}
+        }, message: {
+            Text(viewModel.resulteMassage)
+        })
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     coordinator.pop()
                 }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.black) // arrow color
+                    HStack(spacing: Dimensions.d20){
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black) // arrow color
+                        Text("Settings")
+                            .font(.custom(AppFont.bold.name, size: Dimensions.d24))
+                            .foregroundStyle(.black)
+                    }
                 }
             }
+        }
+        .task {
+            viewModel.getProfile()
         }
     }
 }

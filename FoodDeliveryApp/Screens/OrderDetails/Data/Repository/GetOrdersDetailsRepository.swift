@@ -21,7 +21,7 @@ class GetOrdersDetailsRepository: GetOrdersDetailsRepositoryProtocol {
     }
     
     func getOrdersDetails(orderId: Int) async throws -> OrderDetailsData {
-        let fetchOrdersEndpoint = Endpoint(path: APIUrls.getOrder + "/\(orderId)")
+        let fetchOrdersEndpoint = Endpoint(path: APIUrls.getOrder,queryItems: [URLQueryItem(name: "Id", value: "\(orderId)")])
         do {
             let resulte = try await service.request(fetchOrdersEndpoint, responseType: BaseModel<OrderDetailsData>.self)
             guard let order = resulte.data else {throw NetworkError.invalidResponse}

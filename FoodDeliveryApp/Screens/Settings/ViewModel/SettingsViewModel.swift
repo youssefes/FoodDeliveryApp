@@ -32,19 +32,21 @@ class SettingsViewModel: BaseViewModel, ObservableObject {
         self.getProfileUseCase = getProfileUseCase
     }
     // MARK: - get Profile request
-    func getProfile() async {
-        do {
-            let user = try await getProfileUseCase.getProfile()
-            UserUtilites.saveUser(userDate: user)
-            profileImage = user.image
-            userName = user.username
-            state = .successful
-        } catch {
-            print(error)
-            if let networkError = error as? NetworkError {
-                state = .failed(networkError)
-            } else {
-                state = .failed(NetworkError.requestFailed(error))
+    func getProfile() {
+        Task { @MainActor [weak self] in
+            guard let self else {return}
+            do {
+                let user = try await getProfileUseCase.getProfile()
+                UserUtilites.saveUser(userDate: user)
+                profileImage = user.image
+                userName = user.username
+                state = .successful
+            } catch {
+                if let networkError = error as? NetworkError {
+                    state = .failed(networkError)
+                } else {
+                    state = .failed(NetworkError.requestFailed(error))
+                }
             }
         }
     }
